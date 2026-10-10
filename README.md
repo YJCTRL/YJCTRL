@@ -1,7 +1,20 @@
 ## Hi there 👋
 
+
+
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+
+## Hi there 👋 < img src="https://komarev.com/ghpvc/?username=LittBox&label=Profile%20views&color=yellow&style=flat" alt="JackieLinn" />
+
 <!--
-**YJCTRL/YJCTRL** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**LittBox/LittBox** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
 
@@ -14,3 +27,22 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+### About Me
+- 🌱 I’m currently a student at Yunnan University.
+- 📷 Passionate about photography. Shoot with Canon and Sony. Excel at street documentary.
+- 🎹 Piano grade 8(Amateur)
+- 🎸 Self-taught guitar, started on April 5, 2025.
+- 🥊 **With _hard work_, even geniuses can be overtaken.**
+
+---
+
+<div align="center">
+    < img src="https://readmestats.999857.xyz/api?username=YJCTRL&show_icons=true&theme=shadow_blue&hide_border=true&line_height=28&card_width=243&title_color=c2255c&text_color=f783ac&icon_color=c2255c&rank_icon=percentile&bg_color=00000000&include_all_commits=true" height="1500" alt="LittBox's GitHub stats" />
+  &nbsp;
+  < img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=YJCTRL&layout=compact&theme=shadow_blue&langs_count=10&size_weight=0.5&count_weight=0.5&hide_border=true&line_height=28&card_width=243&title_color=c2255c&text_color=f783ac&icon_color=c2255c" height="1500" alt="Top Langs" />
+</div>
+
+<div align="center">
+  < img src="https://github-readme-activity-graph.vercel.app/graph?username=YJCTRL" alt="YJCTRL's github activity graph" />
+</div>
