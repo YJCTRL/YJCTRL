@@ -1,32 +1,46 @@
-name: Update README cards
+name: Refresh profile cards
 
 on:
   schedule:
     - cron: "0 3 * * *"
   workflow_dispatch:
-# 添加权限配置
+
 permissions:
-  contents: write  # 赋予写入仓库的权限
+  contents: write
+
 jobs:
-  build:
+  refresh-cards:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out profile
+        uses: actions/checkout@v4
 
-      # 在 GitHub Actions 中生成卡片时设置相同的高度参数
-      - name: Generate stats card
+      - name: Download fresh cards
+        env:
+          OWNER: ${{ github.repository_owner }}
         run: |
-          curl -o profile/stats.svg \
-            "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&show_icons=true&hide_border=true&line_height=28&card_width=243&title_color=fab005&text_color=fff9db&icon_color=fab005&rank_icon=percentile&bg_color=00000000&include_all_commits=true&hide_title=true"
-      
-      - name: Generate top languages card
+          set -euo pipefail
+          mkdir -p profile
+
+          curl --fail --location --retry 3 --retry-all-errors \
+            "https://github-readme-stats.vercel.app/api?username=${OWNER}&show_icons=true&theme=transparent&hide_border=true&rank_icon=github&include_all_commits=true&custom_title=GitHub%20Stats" \
+            --output profile/stats.svg
+
+          curl --fail --location --retry 3 --retry-all-errors \
+            "https://github-readme-stats.vercel.app/api/top-langs/?username=${OWNER}&layout=compact&theme=transparent&hide_border=true&langs_count=8&custom_title=Most%20Used%20Languages" \
+            --output profile/top-langs.svg
+
+          test -s profile/stats.svg
+          test -s profile/top-langs.svg
+
+      - name: Commit changed cards
         run: |
-          curl -o profile/top-langs.svg \
-            "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&langs_count=10&hide_border=true&line_height=28&card_width=243&title_color=fab005&text_color=fff9db&icon_color=fab005&hide_title=true"
-      - name: Commit cards
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add profile/*.svg
-          git commit -m "Update README cards" || exit 0
-          git push
+          if git diff --cached --quiet; then
+            echo "Cards are already up to date."
+          else
+            git commit -m "chore: refresh profile cards"
+            git push
+          fi
